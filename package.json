@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/Kumilachew-g/food-delivery#readme",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "express": "^4.18.2",
     "mongodb": "^2.2.36",
     "mongoose": "^7.4.2",
