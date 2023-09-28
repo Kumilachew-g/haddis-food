@@ -23,10 +23,10 @@ function HomePage() {
         ) : error ? (
           <Error error='Some thing went wrong' />
         ) : (
-          foods.map((food) => {
+          foods.map((food, i) => {
             return (
-              <div className='col-md-3 m-3 p-2' key={food._id}>
-                <div>
+              <div className='col-md-3 m-3' key={i}>
+                <div key={i}>
                   <Food food={food} />
                 </div>
               </div>
