@@ -23,6 +23,7 @@ function HomePage() {
         ) : error ? (
           <Error error='Some thing went wrong' />
         ) : (
+          foods &&
           foods.map((food) => {
             return (
               <div className='col-md-3 m-3' key={food._id}>
