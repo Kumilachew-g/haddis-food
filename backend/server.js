@@ -1,16 +1,16 @@
 const express = require('express');
 
-const food = require('../models/foodModel');
+const food = require('./models/foodModel');
 
 const app = express();
-const db = require('../db');
+const db = require('./db');
 app.use(express.json());
 const path = require('path');
 app.use(express.static('public'));
 
-const foodRouter = require('../routes/foodRoute');
-const userRouter = require('../routes/userRoute');
-const orderRouter = require('../routes/ordersRoute');
+const foodRouter = require('./routes/foodRoute');
+const userRouter = require('./routes/userRoute');
+const orderRouter = require('./routes/ordersRoute');
 
 app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);
