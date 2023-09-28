@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Food from '../components/Food';
 import { useDispatch, useSelector } from 'react-redux';
-import { Fragment } from 'react';
 import { getAllFood } from '../redux/actions/foodActions';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
@@ -24,15 +23,13 @@ function HomePage() {
         ) : error ? (
           <Error error='Some thing went wrong' />
         ) : (
-          foods.map((food, i) => {
+          foods.map((food) => {
             return (
-              <Fragment key={i}>
-                <div className='col-md-3 m-3'>
-                  <div>
-                    <Food food={food} />
-                  </div>
+              <div className='col-md-3 m-3' key={food._id}>
+                <div>
+                  <Food food={food} />
                 </div>
-              </Fragment>
+              </div>
             );
           })
         )}
