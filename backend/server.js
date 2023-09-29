@@ -18,6 +18,7 @@ app.use('/api/orders', orderRouter);
 
 // Deploy in vercel
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
   res.send('Express on Vercel');
 });
 
