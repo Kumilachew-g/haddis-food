@@ -1,5 +1,4 @@
 const express = require('express');
-require('dotenv').config();
 
 const food = require('./models/foodModel');
 
@@ -17,15 +16,19 @@ app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-if (process.env.NODE_ENV === 'production') {
-  const vercelAsset = require('@vercel/asset');
+// Deploy in vercel
+app.get('/', (req, res) => {
+  res.send('Express on Vercel');
 
-  app.use('/', express.static(vercelAsset.resolveAsset('client/build')));
+  db.sync()
+    .then(() => {
+      console.log('DB synced');
+    })
 
-  app.get('*', (req, res) => {
-    res.sendFile(vercelAsset.resolveAsset('client/build/index.html'));
-  });
-}
+    .catch((err) => {
+      console.log('Error: ' + err);
+    });
+});
 
 const port = process.env.PORT || 5000;
 
