@@ -18,10 +18,12 @@ app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use('/', express.static('client/build'));
+  const vercelAsset = require('@vercel/asset');
+
+  app.use('/', express.static(vercelAsset.resolveAsset('client/build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
+    res.sendFile(vercelAsset.resolveAsset('client/build/index.html'));
   });
 }
 
