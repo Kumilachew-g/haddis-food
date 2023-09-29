@@ -1,6 +1,6 @@
 {
   "name": "Food Delivery",
-  "version": 1,
+  "version": 2,
   "builds": [
     {
       "src": "client/build",
