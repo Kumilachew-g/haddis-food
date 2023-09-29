@@ -11,7 +11,7 @@ function HomePage() {
   const foodsState = useSelector((state) => state.getAllFoodsReducer);
   const { foods, loading, error } = foodsState;
 
-  const foodsArray = Object.values(foods) || []; // Added this line
+  const foodsArray = (foods && Object.values(foods)) || []; // Added this line
 
   useEffect(() => {
     dispatch(getAllFood());
