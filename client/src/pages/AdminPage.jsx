@@ -12,10 +12,10 @@ function AdminPage() {
   const { currentUser } = userState;
 
   useEffect(() => {
-    if (!currentUser.isAdmin) {
+    if (currentUser && !currentUser.isAdmin) {
       window.location.href = '/';
     }
-  }, [currentUser.isAdmin]);
+  }, [currentUser.isAdmin, currentUser]);
 
   return (
     <div>
