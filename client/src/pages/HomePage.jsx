@@ -11,6 +11,8 @@ function HomePage() {
   const foodsState = useSelector((state) => state.getAllFoodsReducer);
   const { foods, loading, error } = foodsState;
 
+  const foodsArray = foods || []; // Added this line
+
   useEffect(() => {
     dispatch(getAllFood());
   }, [dispatch]);
@@ -23,7 +25,8 @@ function HomePage() {
         ) : error ? (
           <Error error='Some thing went wrong' />
         ) : (
-          foods.map((food) => {
+          foodsArray.map((food) => {
+            // Added this line
             return (
               <div className='col-md-3 m-3' key={food._id}>
                 <div key={food._id}>
