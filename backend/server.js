@@ -19,15 +19,6 @@ app.use('/api/orders', orderRouter);
 // Deploy in vercel
 app.get('/', (req, res) => {
   res.send('Express on Vercel');
-
-  db.sync()
-    .then(() => {
-      console.log('DB synced');
-    })
-
-    .catch((err) => {
-      console.log('Error: ' + err);
-    });
 });
 
 const port = process.env.PORT || 5000;
