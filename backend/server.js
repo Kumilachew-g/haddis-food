@@ -16,14 +16,11 @@ app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-// vercel deployment setup
 if (process.env.NODE_ENV === 'production') {
-  const vercelAsset = require('@vercel/asset');
-
-  app.use('/', express.static(vercelAsset.resolveAsset('client/build')));
+  app.use('/', express.static('client/build'));
 
   app.get('*', (req, res) => {
-    res.sendFile(vercelAsset.resolveAsset('client/build/index.html'));
+    res.sendFile(path.resolve(__dirname, './client/build/index.html'));
   });
 }
 
