@@ -1,5 +1,11 @@
 {
+  "name": "Food Delivery",
+  "version": 1,
   "builds": [
+    {
+      "src": "client/build",
+      "use": "@vercel/static"
+    },
     {
       "src": "server.js",
       "use": "@vercel/node"
@@ -8,7 +14,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "/server.js"
     }
   ]
 }
